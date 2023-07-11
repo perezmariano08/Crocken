@@ -1,0 +1,297 @@
+:root {
+  --red: #eb2c0b;
+  --white: #fafafa;
+  --pink: #f9c6c0;
+  --blue: #0a2e4a;
+  --blue-dark: #001529;
+  --yellow: #ff9e18;
+  --orange: #ff4713;
+}
+
+/* Nuevo */
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes arrowDown {
+  0% {
+      transform: translateY(-5px);
+  }   
+  50% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-5px);
+  }
+}
+
+.hero-text h1 {
+  animation: float 2s ease-in-out infinite;
+}
+
+.hero-arrow i {
+  animation: arrowDown .4s ease-in-out infinite;
+}
+
+/* Estilo inicial de la imagen */
+.logo-crocken {
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Efecto de escala al pasar el cursor sobre la imagen */
+.logo-crocken:hover {
+  transform: scale(1.1); /* Escala la imagen al 120% del tamaño original */
+}
+
+
+
+/* ------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 65px;
+}
+
+/* Keyframes */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+  from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@keyframes openMenu {
+  from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes closeMenu {
+  from {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-100%);
+    }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+      border-radius: 
+      40% 60% 70% 30% / 
+      40% 40% 60% 50%;
+  }
+
+  34% {
+      border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+
+  67% {
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+@keyframes bgOrangeRed {
+  0% {
+    background: var(--orange);
+  }
+  25% {
+    background: var(--red);
+  }
+  50% {
+    background: var(--red);
+  }
+  100% {
+    background: var(--orange);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.box {
+  opacity: 0;
+}
+
+.animate-boxes {
+  animation: fade 2s;
+  opacity: 1;
+}
+
+
+
+
+
+/* Buttons */
+.btn:hover,
+.btn-circle:hover {
+  transition: all .3s ease-in-out;
+}
+
+.btn-orange:hover {
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--orange);
+  border: 1px solid var(--orange);
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 6; /*Para que quede por encima del resto de las cosas*/
+  /*Efecto de Glassmorphismo*/
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+}
+
+.show-overlay {
+  display: block;
+}
+
+/* Header */
+.icons:hover {
+  color: var(--pink);
+  transition: all .3s ease;
+}
+
+.navbar-list .link:hover {
+  transition: all 0.1s ease;
+  color: var(--pink);
+}
+
+.navbar-list .item {
+  position: relative;
+  padding: 4px;
+}
+
+.navbar-list .link::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: var(--pink);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.15s ease;
+}
+
+.navbar-list .link:hover::after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+
+
+/* Hero */
+#hero {
+  animation: bgOrangeRed 3.5s linear infinite;
+}
+
+.hero-img {
+  animation: slideRight 1s, morph 3.5s linear infinite;
+}
+
+.hero-info {
+  animation: slideLeft 1s;
+}
+
+/* Products */
+
+.category:hover {
+  cursor: pointer;
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+
+.product-img:hover .product-ingredients {
+  display: flex;
+  animation: slideDown .5s ease-in-out;
+}
+
+.product {
+  animation: fade .8s ease-in-out;
+}
+
+/* Cart */
+.disabled,
+.disabled:hover {
+  background-color: var(--white);
+  color: var(--yellow);
+  cursor: not-allowed;
+  border: none;
+}
+
+
+
